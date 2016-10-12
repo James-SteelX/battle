@@ -10,4 +10,4 @@ class Attack
   def run
    @player.receive_damage
   end
-end 
+end

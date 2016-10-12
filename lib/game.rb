@@ -2,11 +2,12 @@ require_relative 'player'
 
 class Game
 
-attr_reader :current_turn
+attr_reader :current_turn, :losing_player
 
   def initialize(player_1, player_2)
    @players =[player_1, player_2]
    @current_turn = player_1
+   @losing_player = nil
   end
 
   def player_1
@@ -30,7 +31,7 @@ attr_reader :current_turn
   end
 
   def loser
-    losing_players.first
+    @losing_player = losing_players.first
   end
 
   private
