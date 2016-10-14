@@ -1,0 +1,12 @@
+<h1><%= @game.current_opponent.name %> attacked <%= @game.current_turn.name %></h1>
+<br>
+<img src = 'https://kingsolomonyc.files.wordpress.com/2010/04/awesomeo5to.gif' />
+
+<h3><%= @game.player_1.name %>: <%= @game.player_1.hit_points %>hp</h3>
+<br>
+<h3><%= @game.player_2.name %>: <%= @game.player_2.hit_points %>hp</h3>
+
+
+<form action="/play" method='get'>
+  <input type='submit' value='OK'>
+</form>
