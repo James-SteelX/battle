@@ -1,4 +1,5 @@
 class Attack
+
   def initialize(player)
    @player = player
   end
@@ -24,8 +25,8 @@ class Attack
   end
 
   def death_punch
-    damage = [0, 0, 20].sample
-    @player.receive_damage(damage)
+   damage = [0, 0, 20].sample
+   @player.receive_damage(damage)
   end
 
   private
@@ -35,5 +36,3 @@ class Attack
   end
 
 end
-
-#for action
