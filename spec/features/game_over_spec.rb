@@ -8,8 +8,8 @@ feature 'Game over' do
     end
 
     scenario 'Player 1 loses' do
-      9.times { attack_and_confirm }
-      click_button 'Attack'
+       21.times { attack_and_confirm }
+      click_button 'Fire-Ball!'
       expect(page).to have_content 'Mittens loses!'
     end
   end

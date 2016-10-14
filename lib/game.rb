@@ -2,6 +2,14 @@ require_relative 'player'
 
 class Game
 
+  def self.new_game(player1, player2)
+    @game = Game.new(player1, player2)
+  end
+
+  def self.instance
+    @game
+  end
+
 attr_reader :current_turn, :losing_player
 
   def initialize(player_1, player_2)
@@ -21,6 +29,10 @@ attr_reader :current_turn, :losing_player
     @current_turn = opponent_of(current_turn)
   end
 
+  def heal
+    @current_turn.receive_damage(-5)
+  end
+
   def current_opponent
     opponent_of(@current_turn)
   end
@@ -34,6 +46,7 @@ attr_reader :current_turn, :losing_player
   end
 
   private
+
   attr_reader :players
 
   def opponent_of(the_player)
@@ -42,6 +55,6 @@ attr_reader :current_turn, :losing_player
 
   def losing_players
    players.select { |player| player.hit_points <= 0 }
-  end
+ end
 
 end

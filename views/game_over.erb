@@ -1,1 +1,7 @@
-<%= @game.loser.name %> loses!
+<img src = 'https://monapinonmomof5.files.wordpress.com/2014/12/game-over2.jpg' />
+
+<h1><%= @game.loser.name %> loses!</h1>
+
+<form action="/restart" method='post'>
+  <input type='submit' value='Try again!'>
+</form>

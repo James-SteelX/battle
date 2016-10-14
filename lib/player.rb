@@ -9,8 +9,8 @@ attr_reader :name, :hit_points
     @hit_points = DEFAULT_HIT_POINTS
   end
 
- def receive_damage
-  @hit_points -= 10
+ def receive_damage(damage)
+  @hit_points -= damage
  end
 
 

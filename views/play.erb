@@ -1,10 +1,25 @@
-<%= @game.player_1.name %> vs. <%= @game.player_2.name %>
+<h1><%= Game.instance.player_1.name %> vs. <%= Game.instance.player_2.name %></h1>
+<br>
 
-<%= @game.player_1.name %>: <%= @game.player_1.hit_points %>hp
-<%= @game.player_2.name %>: <%= @game.player_2.hit_points %>hp
+<h3><%= Game.instance.player_1.name %>: <%= Game.instance.player_1.hit_points %>hp</h3>
 
-It's <%=@game.current_turn.name%>'s turn!
-
+<h3><%= Game.instance.player_2.name %>: <%= Game.instance.player_2.hit_points %>hp</h3>
+<br>
+<h3>It's <%=Game.instance.current_turn.name%>'s turn!</h3>
+<br>
+<h3>Attacks:</h3>
 <form action="/attack" method="post">
-  <input type='submit' value='Attack'>
+  <input type='submit' value='Tackle!'>
+</form>
+
+<form action="/fire-ball" method="post">
+  <input type='submit' value='Fire-Ball!'>
+</form>
+
+<form action="/death-punch" method="post">
+  <input type='submit' value='Death-Punch!'>
+</form>
+<h3>Heal yourself:</h3>
+<form action="/heal" method="post">
+  <input type='submit' value='Heal!'>
 </form>

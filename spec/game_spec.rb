@@ -3,11 +3,14 @@ require 'game'
 require 'player'
 
 describe Game do
+
+subject(:chicago_game)  {described_class.new(chicago, mittens)}
 subject(:game)          {described_class.new(dave, mittens)}
 subject(:finished_game) {described_class.new(dead_player, mittens)}
 let (:dave)        {double(:player, hit_points: 60)}
 let (:mittens)     {double(:player, hit_points: 60)}
 let (:dead_player) {double(:player, hit_points: 0)}
+let(:chicago)       {Player.new(:dave)}
 
   describe '#initialize' do
     it 'takes player names' do
@@ -47,6 +50,13 @@ let (:dead_player) {double(:player, hit_points: 0)}
   describe '#loser' do
     it 'returns a player on less than 0hp' do
       expect(finished_game.loser).to eq dead_player
+    end
+  end
+
+  describe '.heal' do
+    it 'gives the player +5 hp' do
+      chicago_game.heal
+      expect(chicago.hit_points).to eq 65
     end
   end
 
