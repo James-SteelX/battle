@@ -1,3 +1,4 @@
+<center>
 <h1><%= @game.current_turn.name %> used Heal!</h1>
 <h3>Recovered 5HP!</h3>
 <h3><%= @game.current_turn.hit_points %></h3>hp
@@ -5,3 +6,4 @@
 <form action="/switch-turns" method='post'>
   <input type='submit' value='OK'>
 </form>
+</center>

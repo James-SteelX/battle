@@ -85,8 +85,12 @@ enable :sessions
     if Game.instance.player_2.name == 'Awesom-O'
        @game.switch_turns
        Attack.computer_attack(@game.current_opponent)
+       if @game.game_over?
+         redirect '/game-over'
+       else
        @game.switch_turns
        redirect '/computer'
+       end
     else
       @game.switch_turns
     end
