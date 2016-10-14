@@ -6,6 +6,10 @@
   <p><%= Game.instance.second_player.name %> has <%= Game.instance.second_player.hit_points %> hit points</p>
   <p><%= Game.instance.first_player.name %> has <%= Game.instance.first_player.hit_points %> hit points</p>
 
+  <% if @player_2_attacked %>
+    <p><%= Game.instance.first_player.name %> attacks <%= Game.instance.second_player.name %>!</p>
+  <% end %>
+
   <form action="/attack" method="post">
     <button type="submit">Attack!</button>
   </form>
@@ -15,7 +19,4 @@
   <form action="/death_punch" method="post">
     <button type="submit">Death Punch!</button>
   </form>
-  <% if @player_2_attacked %>
-    <p><%= Game.instance.first_player.name %> attacks <%= Game.instance.second_player.name %>!</p>
-  <% end %>
 <% end %>
