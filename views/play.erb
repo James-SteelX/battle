@@ -19,7 +19,10 @@
 <form action="/death-punch" method="post">
   <input type='submit' value='Death-Punch!'>
 </form>
-<h3>Heal yourself:</h3>
-<form action="/heal" method="post">
+
+<% if Game.instance.current_turn.hit_points != 60 %>
+ <h3>Heal yourself:</h3>
+ <form action="/heal" method="post">
   <input type='submit' value='Heal!'>
-</form>
+ </form>
+<% end %>

@@ -30,7 +30,9 @@ attr_reader :current_turn, :losing_player
   end
 
   def heal
-    @current_turn.receive_damage(-5)
+    if @current_turn.hit_points != Player::DEFAULT_HIT_POINTS
+     @current_turn.receive_damage(-5)
+    end
   end
 
   def current_opponent
