@@ -9,7 +9,7 @@ require 'spec_helper'
    scenario 'automated player will automatically attack with no prompt' do
      play_against_robot
      attack_and_confirm
-     expect(page).to have_content("Dave's turn!")
+     expect(page).to have_content("Awesom-O attacked Dave")
    end
 
  end

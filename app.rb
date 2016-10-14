@@ -86,6 +86,7 @@ enable :sessions
        @game.switch_turns
        Attack.computer_attack(@game.current_opponent)
        @game.switch_turns
+       redirect '/computer'
     else
       @game.switch_turns
     end
@@ -94,6 +95,10 @@ enable :sessions
 
   get '/game-over' do
     erb :game_over
+  end
+
+  get '/computer' do
+    erb :awesom_o
   end
 
   # start the server if ruby file executed directly
