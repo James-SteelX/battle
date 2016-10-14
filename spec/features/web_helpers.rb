@@ -9,3 +9,9 @@ def attack_and_confirm
   click_button 'Fire-Ball!'
   click_button 'OK'
 end
+
+def play_against_robot
+  visit('/')
+  fill_in :player_1_name, with: 'Dave'
+  click_button 'Submit'
+end

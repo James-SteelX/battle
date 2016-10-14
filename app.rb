@@ -14,6 +14,9 @@ enable :sessions
   post '/names' do
    @player_1 = Player.new(params[:player_1_name])
    @player_2 = Player.new(params[:player_2_name])
+   if @player_2.name == ''
+      @player_2 = Player.new('Awesom-O')
+   end
    @game = Game.new_game(@player_1, @player_2)
    redirect '/play'
   end
@@ -79,7 +82,13 @@ enable :sessions
 #attacks end
 
   post '/switch-turns' do
-    @game.switch_turns
+    if Game.instance.player_2.name == 'Awesom-O'
+       @game.switch_turns
+       Attack.computer_attack(@game.current_opponent)
+       @game.switch_turns
+    else
+      @game.switch_turns
+    end
     redirect('/play')
   end
 

@@ -16,6 +16,10 @@ class Attack
     new(player).death_punch
   end
 
+  def self.computer_attack(player)
+    new(player).computer_attack
+  end
+
   def tackle
    @player.receive_damage(random)
   end
@@ -29,10 +33,19 @@ class Attack
    @player.receive_damage(damage)
   end
 
+  def computer_attack
+    computer_random_attack
+  end
+
   private
 
   def random
     rand(1..10)
+  end
+
+  def computer_random_attack
+    attack = [method(:tackle), method(:fire_ball), method(:death_punch)].sample
+    attack.call
   end
 
 end
